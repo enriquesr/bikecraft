@@ -1,0 +1,83 @@
+.header-bg {
+  background-color: #000;
+}
+
+body {
+  margin: 0px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.header { /*agrupa dois filhos, a logo (<a>) e a lista do menu(nav)*/
+  display: flex; /* os dois filhos vão receber o display flex*/
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between; /*espaçamento dos filhos */
+  align-items: center; /*vai alinhar os elementos filhos (a e nav) ao centro */
+  box-sizing: border-box; /*ao selecionar o max-width 1200, o gap de 20 já faz parte dos 1200 */
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto; /* margem automática para os itens centralidados com o align-itens */
+}
+
+.header-menu{ /*é a classe do elemento <ul>, ele torna a lista flex */
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.header-menu a {
+  padding: 16px 0; /* o botão dentro da lista  */
+  display: inline-block;/* evitar sobreposição de elementos */
+  color: #fff;
+  text-decoration: none;
+  position: relative;
+}
+
+.header-menu a::after {
+  content: "";
+  position: absolute;
+  display: block;
+  height: 2px;
+  width: 0px;
+  background-color: white;
+  margin-top: 4px;
+  transition: 0.2s;
+}
+.header-menu a:hover:after {
+  width: 100%;
+}
+
+
+
+@media (max-width: 800px) {
+  .header-menu{
+    gap: 20px;
+  }
+  .header-menu a {
+    background-color: #111111;
+    padding: 12px 16px;
+    border-radius: 4px;
+  }
+  .header-menu a:hover {
+    background-color: #2E2E2E;
+  }
+  .header-menu a:hover::after {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .header-menu  {
+    gap: 12px;
+  }
+  .header-menu a  {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+}
